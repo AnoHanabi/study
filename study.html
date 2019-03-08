@@ -4,9 +4,12 @@
 
 <head>
 
-    <title>title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
 
-    <meta charset="utf-8">
+    <!-- <meta http-equiv="Refresh" content="5; url=http://www.w3school.com.cn" /> -->
+    <title>title</title>
 
     <style type="text/css">
         h1 {
@@ -22,9 +25,10 @@
         }
     </style>
 
+    <base target="_blank">
 </head>
 
-<body style="background-color:grey" background="http://bpic.ooopic.com/16/50/49/16504956-678537f8d8fd29579dbb68a956069586.jpg">
+<body background="http://bpic.ooopic.com/16/50/49/16504956-678537f8d8fd29579dbb68a956069586.jpg">
 
     <h1 id="id1">h111111111</h1>
 
@@ -150,6 +154,78 @@
         <dt>dt2</dt>
         <dd>dd2</dd>
     </dl>
+
+    <iframe src="city.html" frameborder="0" width="700" height="200"></iframe>
+    <br>
+
+    <iframe src="city.html" width="1000" height="1000" frameborder="0" name="baidu"></iframe>
+    <br>
+    <a href="https://www.baidu.com" target="baidu">baidu</a>
+    <br>
+    <a href="city.html" target="baidu">city</a>
+
+    <script type="text/javascript">
+        document.write("<h1>hello</h1>")
+    </script>
+
+    <a href="https://www.baidu.com">test base</a>
+    <br> &lt;&nbsp;&nbsp;&nbsp;&gt;
+    <br> &amp;&nbsp;&quot;
+    <br>
+
+    <form>
+        firstname:
+        <input type="text" name="firstname">
+        <br> lastname:
+        <input type="text" name="lastname">
+        <br>
+        <input type="radio" name="sex" value="male" checked>male
+        <br>
+        <input type="radio" name="sex" value="female">female
+    </form>
+    <select name="num" id="num1">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+    </select>
+    <br>
+    <textarea name="message" id="m1" cols="10" rows="10">
+        qqqqqqqqqqqqqqqqqqqqqqqqqqq11111111111111111111111
+    </textarea>
+    <br>
+    <button type="button" onclick="alert(111)">111</button>
+    <form>
+        <input list="name">
+        <datalist id="name">
+            <option value="tim">tim</option>
+            <option value="tom">tom</option>
+        </datalist>
+    </form>
+    <form>
+        name:
+        <br>
+        <input type="text" name="name" id="name1">
+        <br> pwd:
+        <br>
+        <input type="password" name="pwd" id="pwd1">
+        <br>
+        <input type="checkbox" name="hobby" value="bike"> bike
+        <br>
+        <input type="checkbox" name="hobby" value="tennis"> tennis
+        <br>
+    </form>
+    <form>
+        <input type="number" name="numm" min="1" max="5">
+        <br>
+        <input type="date" name="birth">
+        <br>
+        <input type="color" name="color">
+        <br>
+        <input type="range" name="range" min="1" max="10">
+        <br>
+        <input type="email" name="email">
+        <input type="submit">
+    </form>
 
 </body>
 
