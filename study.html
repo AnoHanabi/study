@@ -51,7 +51,7 @@
     <h6>h666666666</h6>
 
     <p>test1
-        <br/>test2</p>
+        <br />test2</p>
 
     <a href="https://github.com/AnoHanabi" style="text-decoration:none">github</a>
 
@@ -75,34 +75,34 @@
 
     <p>
         <b>粗体</b>
-        <br/>
+        <br />
         <big>大字</big>
-        <br/>
+        <br />
         <em>着重</em>
-        <br/>
+        <br />
         <i>斜体</i>
-        <br/>
+        <br />
         <small>小字</small>
-        <br/>
+        <br />
         <strong>加重</strong>
-        <br/> X
+        <br /> X
         <sub>下标</sub>
-        <br/> X
+        <br /> X
         <sup>上标</sup>
-        <br/>
+        <br />
         <ins>插入</ins>
-        <br/>
+        <br />
         <del>删除</del>
     </p>
 
     <p>
         The
         <abbr title="People's Republic of China">PRC</abbr> was founded in 1949.
-        <br/>
+        <br />
         <bdo dir="rtl">right to left</bdo>
         <blockquote>111
-            <br/>222
-            <br/>333</blockquote>
+            <br />222
+            <br />333</blockquote>
         <q>quote</q>
     </p>
 
@@ -131,7 +131,8 @@
         </tr>
         <tr>
             <td>1</td>
-            <td rowspan="2" background="http://bpic.ooopic.com/16/50/49/16504956-678537f8d8fd29579dbb68a956069586.jpg"></td>
+            <td rowspan="2" background="http://bpic.ooopic.com/16/50/49/16504956-678537f8d8fd29579dbb68a956069586.jpg">
+            </td>
             <td>3</td>
         </tr>
         <tr>
@@ -163,10 +164,10 @@
         <dd>dd2</dd>
     </dl>
 
-    <iframe src="city.html" frameborder="0" width="700" height="200"></iframe>
+    <iframe src="city.html" frameborder="0" width="700" height="700"></iframe>
     <br>
 
-    <iframe src="city.html" width="1000" height="1000" frameborder="0" name="baidu"></iframe>
+    <iframe src="city.html" width="700" height="700" frameborder="0" name="baidu"></iframe>
     <br>
     <a href="https://www.baidu.com" target="baidu">baidu</a>
     <br>
@@ -241,6 +242,15 @@
     <br>
     <input type="text" name="max" id="max" value="maxlen" maxlength="10">
     <br>
+    <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+        0 <input type="range" name="a" id="a" min="0" max="100">100+ <input type="number" name="b" id="b" value="50">
+        = <output name="x" id="x" for="a b"></output>
+    </form>
+    <form>
+        <input type="text" name="required" id="required" value="required" required>
+        <input type="number" name="step" id="step" step="0.5">
+        <input type="submit">
+    </form>
     <form novalidate>
         <input type="email">
         <input type="submit" value="novalidate">
@@ -264,23 +274,71 @@
     </script>
     <canvas id="canvas2" width="100" height="100" style="border: black 1px solid"></canvas>
     <script>
-        var c=document.getElementById("canvas2");
-        var c1=c.getContext("2d");
-        var c1_1=c1.createLinearGradient(0,0,100,100);
-        c1_1.addColorStop(0,"red");
-        c1_1.addColorStop(1,"white");
-        c1.fillStyle=c1_1;
-        c1.fillRect(0,0,50,50);
-        var c2=c.getContext("2d");
-        var c2_1=c2.createRadialGradient(25,75,0,25,75,25);
-        c2_1.addColorStop(0,"green");
-        c2_1.addColorStop(1,"white");
-        c2.fillStyle=c2_1;
-        c2.fillRect(0,50,50,100);
-        var c3=c.getContext("2d");
-        var img=document.getElementById("img2");
-        c3.drawImage(img,50,0);
+        var c = document.getElementById("canvas2");
+        var c1 = c.getContext("2d");
+        var c1_1 = c1.createLinearGradient(0, 0, 100, 100);
+        c1_1.addColorStop(0, "red");
+        c1_1.addColorStop(1, "white");
+        c1.fillStyle = c1_1;
+        c1.fillRect(0, 0, 50, 50);
+        var c2 = c.getContext("2d");
+        var c2_1 = c2.createRadialGradient(25, 75, 0, 25, 75, 25);
+        c2_1.addColorStop(0, "green");
+        c2_1.addColorStop(1, "white");
+        c2.fillStyle = c2_1;
+        c2.fillRect(0, 50, 50, 100);
+        var c3 = c.getContext("2d");
+        var img = document.getElementById("img2");
+        c3.drawImage(img, 50, 0);
     </script>
+    <br>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        function drag(ev) {
+            ev.dataTransfer.setData("Text", ev.target.id);
+        }
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+    <div style="border: 1px solid;width: 200px;height: 200px;" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <img id="drag1" src="GAME.png" alt="GAME" draggable="true" ondragstart="drag(event)"></div>
+    <div style="border: 1px solid;width: 200px;height: 200px;" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+    <video src="video.mkv" controls></video>
+    <audio src="audio.mp3" controls></audio>
+    <form autocomplete="on">
+        <input type="text" name="t1" id="t1" autofocus>
+        <br>
+        <input type="text" name="t2" id="t2" autocomplete="off">
+    </form>
+    <form>
+        <input type="text" name="pattern" id="pattern" pattern="[A-Za-z]{3}" placeholder="placeholder:三个字母以内">
+        <input type="submit">
+    </form>
+    <div id="site">
+        <script>
+            localStorage.sitename = "study";
+            document.getElementById("site").innerHTML = localStorage.sitename;
+        </script>
+    </div>
+
+    <input onclick="clickAdd()" type="button" name="b1" id="b1" value="click me">
+    <div id="click">
+        <script>
+            function clickAdd() {
+                if (localStorage.clickNum)
+                    localStorage.clickNum = Number(localStorage.clickNum) + 1;
+                else
+                    localStorage.clickNum = 1;
+                document.getElementById("click").innerHTML = 'click num:' + localStorage.clickNum;
+            }
+        </script>
+    </div>
+
 </body>
 
 </html>
