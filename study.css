@@ -1,9 +1,66 @@
-h1 
-{
-    color:red;
+h1 {
+    color: black;
+    text-align: center;
+    text-decoration: line-through;
+    text-transform: capitalize;
 }
 
-p 
-{
-    color: blue;
+body {
+    background: grey url("GAME.png") no-repeat right top;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: purple;
+}
+
+a:visited {
+    color: red;
+}
+
+a:hover {
+    text-decoration: underline;
+    background-color: black;
+    color: salmon;
+}
+
+a:active {
+    color: green;
+}
+
+p {
+    text-indent: 50px;
+    text-shadow: 2px 2px red;
+    font-family: sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+ul.square {
+    list-style-type: square;
+}
+
+ol.roma {
+    list-style-type: lower-roman;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100px;
+}
+
+table, td {
+    border: 1px solid;
+}
+
+td {
+    text-align: center;
+    vertical-align: top;
+    padding: 50px;
+    background-color: white;
+    height: 100px;
 }
