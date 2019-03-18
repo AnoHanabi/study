@@ -1,0 +1,102 @@
+q:lang(no) {
+    quotes: "~" "~";
+}
+
+input.yl:focus {
+    background-color: yellow;
+}
+
+body {
+    background-color: grey;
+    margin: 0px;
+}
+
+p.fl::first-line {
+    font-size: 30px;
+    color: salmon;
+}
+
+p.ba::before {
+    content: url(GAME.png);
+}
+
+p.ba::after {
+    content: url(GAME.png);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: salmon;
+}
+
+li {
+    float: left;
+    border-right: 1px solid black;
+}
+
+li a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 5px 10px;
+}
+
+li a:hover:not(.ac) {
+    background-color: black;
+    color: white;
+}
+
+li a.ac {
+    background-color: green;
+    color: white;
+}
+
+li:last-child {
+    border-right: none;
+    float: right;
+}
+
+div.r {
+    margin-top: 5%;
+    width: 100%;
+    padding: 10px;
+}
+
+div.dd {
+    border: 1px solid;
+    background-color: salmon;
+    width: 100px;
+    text-align: center;
+}
+
+div.dd:hover {
+    background-color: rgb(245, 67, 47);
+}
+
+div.dd:hover .drop {
+    display: block;
+}
+
+div.drop {
+    display: none;
+    position: absolute;
+    width: 200px;
+    right: 0px;
+    box-shadow: 0px 8px 16px 0px rgba(255, 0, 0, 0.7);
+    background-color: salmon;
+}
+
+div.drop p {
+    margin: 0px;
+    text-align: center;
+}
+
+div.drop p:hover {
+    background-color: rgb(245, 67, 47);
+}

@@ -18,7 +18,7 @@ a:link {
 }
 
 a:visited {
-    color: red;
+    color: black;
 }
 
 a:hover {
@@ -32,12 +32,17 @@ a:active {
 }
 
 p {
-    text-indent: 50px;
     text-shadow: 2px 2px red;
     font-family: sans-serif;
     font-style: italic;
     font-weight: bold;
     font-size: 50px;
+}
+
+.douyin {
+    position: sticky;
+    top: 0px;
+    text-shadow: -2px -1px rgb(85, 247, 247), 2px 1px rgb(245, 23, 81);
 }
 
 ul.square {
@@ -63,4 +68,85 @@ td {
     padding: 50px;
     background-color: white;
     height: 100px;
+}
+
+div.normal {
+    border: 5px red inset;
+    border-top-style: dotted;
+    text-align: center;
+    vertical-align: center;
+    width: 50px;
+    height: 50px;
+    padding: 50px;
+    padding-top: 10px;
+    margin: 5%;
+    margin-top: 100px;
+    background-color: salmon;
+    outline: 5px green dashed;
+}
+
+img {
+    width: 30%;
+    max-height: 100px;
+}
+
+p.hidden {
+    visibility: hidden;
+}
+
+span {
+    display: block;
+    cursor: wait;
+}
+
+p.fixed {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+}
+
+h1 {
+    position: absolute;
+    top: 100px;
+    right: 50%;
+}
+
+img.z-index {
+    position: absolute;
+    width: auto;
+    left: -5px;
+    z-index: -1;
+}
+
+img.clip {
+    width: auto;
+    position: relative;
+    top: 100px;
+    z-index: -1;
+}
+
+div.of {
+    border: 1px solid;
+    width: 100px;
+    position: relative;
+    top: 100px;
+    height: 150px;
+    overflow: auto;
+}
+
+.float {
+    float: left;
+    font-style: initial;
+    font-size: 100px;
+}
+
+.center {
+    margin: auto;
+    border: 1px dotted;
+    overflow: auto;
+}
+
+.floatimg {
+    width: auto;
+    float: right;
 }
