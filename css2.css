@@ -100,3 +100,111 @@ div.drop p {
 div.drop p:hover {
     background-color: rgb(245, 67, 47);
 }
+
+div.tip {
+    position: relative;
+    display: inline-block;
+}
+
+div.tip .tiptext {
+    visibility: hidden;
+    position: absolute;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    top: -5px;
+    display: inline-block;
+    left: 110%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+div.tip .tiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    border-width: 5px;
+    right: 100%;
+    margin-top: -5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+div.tip:hover .tiptext {
+    opacity: 1;
+    visibility: visible;
+}
+
+img.opa {
+    opacity: 0.5;
+}
+
+img.opa:hover {
+    opacity: 1;
+}
+
+div.img {
+    width: 50px;
+    height: 50px;
+    background: url(GAME.png);
+    transform: rotate(30deg);
+    box-shadow: 10px 10px 5px red;
+}
+
+div.clip {
+    height: 100px;
+    width: 100px;
+    border: 10px dotted;
+    text-align: center;
+    line-height: 100px;
+    padding: 30px;
+    margin: 30px;
+    background: radial-gradient(circle, red 10%, salmon 50%);
+    background-clip: content-box;
+}
+
+div.aftershadow {
+    position: relative;
+    text-align: center;
+}
+
+div.aftershadow::after {
+    content: " ";
+    bottom: 5px;
+    width: 10%;
+    left: 45%;
+    position: absolute;
+    z-index: -1;
+    box-shadow: 0px 5px 10px rgba(255, 0, 0, 0.5);
+    height: 5px;
+}
+
+div.ellipsis {
+    width: 50px;
+    border: 1px solid;
+    height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transform: scale(3, 1);
+}
+
+img.skew {
+    transform: skew(10deg, 10deg);
+}
+
+div.anime {
+    background-color: salmon;
+    height: 50px;
+    width: 50px;
+    border-radius: 3px;
+    padding: 5px;
+    transition: width 3s, height 3s, transform 1s;
+}
+
+div.anime:hover {
+    height: 100px;
+    width: 100px;
+    background-color: teal;
+    transform: rotate(180deg);
+}
