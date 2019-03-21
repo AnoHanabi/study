@@ -24,7 +24,7 @@ p.ba::after {
     content: url(GAME.png);
 }
 
-ul {
+ul.fixed {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
@@ -34,12 +34,12 @@ ul {
     background-color: salmon;
 }
 
-li {
+ul.fixed li {
     float: left;
     border-right: 1px solid black;
 }
 
-li a {
+ul.fixed li a {
     text-align: center;
     text-decoration: none;
     color: black;
@@ -47,17 +47,17 @@ li a {
     padding: 5px 10px;
 }
 
-li a:hover:not(.ac) {
+ul.fixed li a:hover:not(.ac) {
     background-color: black;
     color: white;
 }
 
-li a.ac {
+ul.fixed li a.ac {
     background-color: green;
     color: white;
 }
 
-li:last-child {
+ul.fixed li:last-child {
     border-right: none;
     float: right;
 }
@@ -207,4 +207,183 @@ div.anime:hover {
     width: 100px;
     background-color: teal;
     transform: rotate(180deg);
+}
+
+div.kf {
+    width: 100px;
+    height: 100px;
+    background-color: teal;
+    animation: anime1 5s;
+}
+
+@keyframes anime1 {
+    from {
+        background-color: teal;
+    }
+    to {
+        background-color: salmon;
+    }
+}
+
+div.cc {
+    column-count: 3;
+    column-rule-style: solid;
+    column-rule-width: 10px;
+    column-rule-color: teal;
+    column-gap: 40px;
+    resize: both;
+    overflow: auto;
+    border: 1px solid;
+    outline-offset: 15px;
+    outline: 1px solid red;
+}
+
+h2.cross {
+    column-span: all;
+}
+
+img.gc {
+    filter: grayscale(100%);
+}
+
+button.bcss {
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    background-color: salmon;
+    font-size: 20px;
+    display: inline-block;
+}
+
+span.bcss {
+    position: relative;
+    transition: 0.5s;
+}
+
+button.bcss:active {
+    background-color: rgb(255, 61, 40);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2), 0 20px 24px rgba(0, 0, 0, 0.2);
+}
+
+button.bcss:hover span.bcss {
+    padding-right: 10px;
+}
+
+button.bcss:hover span.bcss::after {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+span.bcss::after {
+    content: "»";
+    position: absolute;
+    opacity: 0;
+}
+
+ul.page {
+    display: inline-block;
+    text-align: center;
+}
+
+li.page {
+    float: left;
+    width: 40px;
+    list-style-type: none;
+    text-align: center;
+    border: 1px solid;
+    margin: 10px;
+}
+
+li.page:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+li.page:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+li.page:hover {
+    background-color: salmon;
+    border-radius: 5px;
+}
+
+a.page {
+    text-decoration: none;
+    color: black;
+    padding: 2px;
+}
+
+div.page {
+    text-align: center;
+}
+
+div.flex {
+    border: 1px solid;
+    width: 500px;
+    height: 500px;
+    margin: 10px;
+    flex-wrap: wrap;
+    display: flex;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+div.flex>* {
+    flex: 1 100%;
+}
+
+div.flex1 {
+    background-color: salmon;
+}
+
+div.flex2 {
+    background-color: teal;
+}
+
+div.flex3 {
+    background-color: aqua;
+}
+
+div.flex4 {
+    background-color: bisque;
+}
+
+div.flex5 {
+    background-color: blueviolet;
+}
+
+@media all and (min-width:1000px) {
+    div.flex3, div.flex4 {
+        flex: 1 auto;
+    }
+}
+
+@media all and (min-width:1100px) {
+    div.flex1 {
+        order: 1;
+    }
+    div.flex2 {
+        order: 3;
+        flex: 4 auto;
+    }
+    div.flex3 {
+        order: 2;
+    }
+    div.flex4 {
+        order: 4;
+    }
+    div.flex5 {
+        order: 5;
+    }
+}
+
+@media all and (min-width:1000px) {
+    body {
+        background-color: teal;
+    }
 }
