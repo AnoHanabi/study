@@ -382,8 +382,82 @@ div.flex5 {
     }
 }
 
-@media all and (min-width:1000px) {
-    body {
-        background-color: teal;
+div.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 10px;
+    border: 1px solid;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+    box-sizing: border-box;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+    box-sizing: border-box;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+@media all and (max-width: 1000px) {
+    [class*="col-"] {
+        width: 100%;
     }
 }
+
+@media all and (orientation: landscape) {
+    body {
+        background-color: tan;
+    }
+}
+
+video {
+    max-width: 50%;
+    height: auto;
+}
+
