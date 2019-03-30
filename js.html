@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="js.css" type="text/css">
+    <title>Document</title>
+    <script src="js.js"></script>
+    <link rel="stylesheet" href="js.css" type="text/css">
+</head>
+
+<body>
+    <h1>First Javascript</h1>
+    <p id="demo1">text</p>
+    <button type="button" onclick="date()">date</button>
+    <script>
+        function date() {
+            document.getElementById("demo1").innerHTML = Date();
+        }
+    </script>
+    <br>
+    <script>document.write("document.write");</script>
+    <br>
+    <button type="button" onclick="alert('onclick')">onclick</button>
+    <p id="demo2">text</p>
+    <button type="button" onclick="long()">long</button>
+    <script>
+        function long() {
+            document.getElementById("demo2").innerHTML = "texttexttext";
+        }
+        function red() {
+            x = document.getElementById("demo2");
+            x.style.color = "red";
+        }
+    </script>
+    <button type="button" onclick="red()">red</button>
+    <br>
+    <img src="GAME.png" alt="game" id="game" onclick="changeGame()">
+    <script>
+        function changeGame() {
+            img = document.getElementById("game");
+            if (img.src.match("GAME")) {
+                img.src = "SOFTWARE.png";
+            }
+            else {
+                img.src = "GAME.png";
+            }
+        }
+    </script>
+    <br>
+    <input type="text" name="num" id="num">
+    <button type="button" onclick="checkNum()">check num</button>
+    <script>
+        function checkNum() {
+            var x = document.getElementById("num").value;
+            if (x == "" || isNaN(x)) {
+                alert("not a number");
+            }
+        }
+    </script>
+    <br>
+    <script>
+        a = 5;
+        b = 6;
+        c = a + b;
+        console.log(c);
+    </script>
+    <script>
+        var num = new Array();
+        for (var i = 0; i < 10; i++) {
+            num[i] = i + 1;
+        }
+        for (var i = 0; i < 10; i++) {
+            document.write(num[i] + '<br>');
+        }
+        var person = {
+            name: "tom",
+            age: 24,
+            full: function () {
+                return this.age + " " + this.name + "<br>";
+            }
+        };
+        document.write(person.name + " " + person.age + "<br>");
+        document.write(person["name"] + " " + person["age"] + "<br>");
+        document.write(person.full());
+    </script>
+    <button type="button" onclick="person1('tom',24)">tom,24</button>
+    <br>
+    <script>
+        document.write(1551 + "Str<br>");
+        document.write("random num:" + Math.random());
+    </script>
+    <br>
+    <button type="button" onclick="day7()">今天星期</button>
+    <p id="dayNum" style="display:inline"></p>
+    <br>
+    <button type="button" onclick="forIn()">forIn</button>
+    <p id="fi"></p>
+    <script>
+        var car=["car1","car2","car3","car4"];
+        list: {
+            document.write(car[0]+"<br>");
+            document.write(car[1]+"<br>");
+            document.write(car[2]+"<br>");
+            break list;
+            document.write(car[3]+"<br>");
+        }
+    </script>
+    <button type="button" onclick="checkDate()">checkDate</button>
+    <p id="checkDate"></p>
+    <script>
+        var x="plus";
+        document.write(+x+'<br>');
+        document.write(person);
+    </script>
+</body>
+
+</html>
