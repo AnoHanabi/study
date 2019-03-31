@@ -98,21 +98,46 @@
     <button type="button" onclick="forIn()">forIn</button>
     <p id="fi"></p>
     <script>
-        var car=["car1","car2","car3","car4"];
+        var car = ["car1", "car2", "car3", "car4"];
         list: {
-            document.write(car[0]+"<br>");
-            document.write(car[1]+"<br>");
-            document.write(car[2]+"<br>");
+            document.write(car[0] + "<br>");
+            document.write(car[1] + "<br>");
+            document.write(car[2] + "<br>");
             break list;
-            document.write(car[3]+"<br>");
+            document.write(car[3] + "<br>");
         }
     </script>
     <button type="button" onclick="checkDate()">checkDate</button>
     <p id="checkDate"></p>
     <script>
-        var x="plus";
-        document.write(+x+'<br>');
+        var x = "plus";
+        document.write(+x + '<br>');
         document.write(person);
+    </script>
+    <br>
+    <p id="vr">visit RunooB</p>
+    <script>
+        var str1 = document.getElementById("vr").innerHTML;
+        document.write("size of 'run':" + str1.search(/run/i));
+        document.write("<br>include 'b'?:" + /b/.test(str1));
+        document.write("<br>'exec() of /SIT/i':" + /SIT/i.exec(str1));
+    </script>
+    <button onclick="rp()" type="button">replace oob</button>
+    <br>
+    <button onclick="mes()" type="button" id="mes">catch err</button>
+    <p>输入1-5：</p>
+    <input type="text" id="mes1">
+    <button onclick="mes1()">1-5</button>
+    <p id="mes2"></p>
+    <script>
+        "use strict"
+        xxx = 114514;
+    </script>
+    <button type="button" onclick="this.style.display='none'">do not press me</button>
+    <script>
+        var json1 = '{"sites":[{"name":"baidu","site":"www.baidu.com"},{"name":"google","site":"www.google.com"}]}';
+        var ans = JSON.parse(json1);
+        document.write(ans.sites[0].name);
     </script>
 </body>
 

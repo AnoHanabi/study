@@ -31,7 +31,38 @@ function forIn() {
 }
 
 function checkDate() {
-    var x=new Date();
-    var numX=x.constructor.toString().indexOf("Date");
-    document.getElementById("checkDate").innerHTML=(numX>-1)?"Yes<br>":"No<br>";
+    var x = new Date();
+    var numX = x.constructor.toString().indexOf("Date");
+    document.getElementById("checkDate").innerHTML = (numX > -1) ? "Yes<br>" : "No<br>";
+}
+
+function rp() {
+    var ans = str1.replace(/oob/i, "[replace text]");
+    document.getElementById("vr").innerHTML = ans;
+}
+
+function mes() {
+    try {
+        errFun("text");
+    }
+    catch (err) {
+        alert(err.message);
+    }
+}
+
+function mes1() {
+    var ans = document.getElementById("mes2");
+    ans.innerHTML = "";
+    var num1 = document.getElementById("mes1").value;
+    try {
+        if (num1 == "") throw "null";
+        if (isNaN(num1)) throw "NaN";
+        if (Number(num1) < 1 || Number(num1) > 5) throw "must between 1 to 5";
+    }
+    catch (err) {
+        ans.innerHTML = "error text:" + err;
+    }
+    finally {
+        document.getElementById("mes1").value = "";
+    }
 }
