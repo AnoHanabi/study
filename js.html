@@ -139,6 +139,29 @@
         var ans = JSON.parse(json1);
         document.write(ans.sites[0].name);
     </script>
+    <script>
+        var x = function (a, b) { return a * b };
+        var y = x(4, 3);
+        document.write(" 4*3=" + y);
+        var xx = (a, b) => a * b;
+        var z = xx(4, 3);
+        document.write(" =>" + z); 
+    </script>
+    <br>
+    <script>
+        function sum() {
+            var ans = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                ans += arguments[i];
+            }
+            return ans;
+        }
+        var ans = sum(1, 2, 3, 4, 5);
+        document.write("sum(1,2,3,4,5)=" + ans);
+    </script>
+    <br>
+    <button type="button" onclick="plusOne()">+1S</button>
+    <p id="plusOneP">0</p>
 </body>
 
 </html>

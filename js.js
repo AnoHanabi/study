@@ -66,3 +66,15 @@ function mes1() {
         document.getElementById("mes1").value = "";
     }
 }
+
+var add = (function () {
+    var ans = 0;
+    function add1() {
+        return ans += 1;
+    }
+    return add1;
+})();
+
+function plusOne() {
+    document.getElementById("plusOneP").innerHTML = add();
+}
