@@ -78,3 +78,41 @@ var add = (function () {
 function plusOne() {
     document.getElementById("plusOneP").innerHTML = add();
 }
+
+function p1Color() {
+    document.getElementById("p1").style.color = "blue";
+}
+
+// function cookie() {
+//     if (navigator.cookieEnabled == true) {
+//         alert("cookie ok");
+//     }
+//     else {
+//         alert("no cookie");
+//     }
+// }
+
+function up() {
+    var upX = document.getElementById("up");
+    upX.value = upX.value.toUpperCase();
+}
+
+function over() {
+    var overX = document.getElementById("divM");
+    overX.innerHTML = "over";
+}
+
+function out() {
+    var outX = document.getElementById("divM");
+    outX.innerHTML = "out";
+}
+
+function down() {
+    var downX = document.getElementById("divM");
+    downX.innerHTML = "down";
+}
+
+function mouseUp() {
+    var mouseUpX = document.getElementById("divM");
+    mouseUpX.innerHTML = "out";
+}

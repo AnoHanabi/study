@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="js.css" type="text/css">
 </head>
 
-<body>
+<body onload="cookie()">
     <h1>First Javascript</h1>
     <p id="demo1">text</p>
     <button type="button" onclick="date()">date</button>
@@ -162,6 +162,49 @@
     <br>
     <button type="button" onclick="plusOne()">+1S</button>
     <p id="plusOneP">0</p>
+    <div id="div1">
+        <p id="p1">p1111111111</p>
+        <p id="p2">p2222222222</p>
+    </div>
+    <script>
+        var divX = document.getElementById("div1");
+        var divY = divX.getElementsByTagName("p");
+        document.write("class='div1' second <p>:" + divY[1].innerHTML);
+    </script>
+    <br>
+    <button type="button" onclick="p1Color()">p1 to blue</button>
+    <br>
+    <h1 onclick="this.innerHTML='xixi'" style="cursor: pointer">click me</h1>
+    <input onchange="up()" type="text" id="up" value="转 大 写">
+    <div id="divM" onmousedown="down()" onmouseup="mouseUp()" onmouseover="over()" onmouseout="out()">out</div>
+    <button id="listen" type="button">listen</button>
+    <script>
+        document.getElementById("listen").addEventListener("click", function () {
+            alert("listen");
+        });//可多事件
+        //removeEventListener移除
+    </script>
+    <br>
+    <div id="divA">
+        <p id="pA">111111111</p>
+        <p id="remove">remove</p>
+    </div>
+    <script>
+        var para=document.createElement("p");
+        var node=document.createTextNode("22222222");
+        para.appendChild(node);
+        divA.appendChild(para);
+        var para1=document.createElement("p");
+        var node1=document.createTextNode("222222221");
+        para1.appendChild(node1);
+        divA.insertBefore(para1,pA);
+        divA.removeChild(remove);
+    </script>
+    <script>
+        var nodelist=document.querySelectorAll("div");
+        document.write("num of div:"+nodelist.length);
+    </script>
+
 </body>
 
 </html>
