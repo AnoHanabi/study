@@ -116,3 +116,61 @@ function mouseUp() {
     var mouseUpX = document.getElementById("divM");
     mouseUpX.innerHTML = "out";
 }
+
+function com() {
+    var res = " ";
+    var ans = confirm("click");
+    if (ans == true) {
+        res = "yes";
+    }
+    else {
+        res = "no";
+    }
+    document.getElementById("com").innerHTML = res;
+    var ans2 = prompt("your name", "tom");
+    if (ans2 != "") {
+        document.getElementById("prompt").innerHTML = ans2;
+    }
+}
+
+var setIn = setInterval(function () { myTime() }, 1000);
+
+function myTime() {
+    var d = new Date();
+    document.getElementById("myTime").innerHTML = d.toLocaleTimeString();
+}
+
+function stopTime() {
+    clearInterval(setIn);
+}
+
+function sCook(uName, uValue, uTime) {
+    var d = new Date();
+    d.setTime(d.getTime() + uTime * 24 * 60 * 60 * 1000);
+    document.cookie = uName + "=" + uValue + ";expires=" + d;
+}
+
+function gCook(uName) {
+    uName += "=";
+    var gArr = document.cookie.split(";");
+    for (var i = 0; i < gArr.length; i++) {
+        var gArrStr = gArr[i].trim();
+        if (gArrStr.indexOf(uName) == 0) {
+            return gArrStr.substring(uName.length);
+        }
+    }
+    return "";
+}
+
+function cCook() {
+    var user = gCook("username");
+    if (user != "") {
+        alert("welcome " + user);
+    }
+    else {
+        user = prompt("your name", "111");
+        if (user != "") {
+            sCook("username", user, 1);
+        }
+    }
+}

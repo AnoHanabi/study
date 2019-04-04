@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="js.css" type="text/css">
 </head>
 
-<body onload="cookie()">
+<body onload="scroll(0,document.body.scrollHeight)">
     <h1>First Javascript</h1>
     <p id="demo1">text</p>
     <button type="button" onclick="date()">date</button>
@@ -190,21 +190,63 @@
         <p id="remove">remove</p>
     </div>
     <script>
-        var para=document.createElement("p");
-        var node=document.createTextNode("22222222");
+        var para = document.createElement("p");
+        var node = document.createTextNode("22222222");
         para.appendChild(node);
         divA.appendChild(para);
-        var para1=document.createElement("p");
-        var node1=document.createTextNode("222222221");
+        var para1 = document.createElement("p");
+        var node1 = document.createTextNode("222222221");
         para1.appendChild(node1);
-        divA.insertBefore(para1,pA);
+        divA.insertBefore(para1, pA);
         divA.removeChild(remove);
     </script>
     <script>
-        var nodelist=document.querySelectorAll("div");
-        document.write("num of div:"+nodelist.length);
+        var nodelist = document.querySelectorAll("div");
+        document.write("num of div:" + nodelist.length);
     </script>
-
+    <br>
+    <script>
+        function pName(fName, lName) {
+            this.fName = fName;
+            this.lName = lName;
+            this.cName = cName;
+            function cName(name) {
+                this.lName = name;
+            }
+        }
+        var myName = new pName("kobe", "bryant");
+        myName.cName("james");
+        document.write(myName.lName);
+    </script>
+    <br>
+    <script>
+        var str = "1,2,3,4,5,6";
+        var strA = str.split(",");
+        document.write("str[5]: " + strA[5]);
+    </script>
+    <br>
+    <script>
+        document.write(window.innerWidth + " " + window.innerHeight);
+        document.write("<br>" + location.href + "<br>");
+    </script>
+    <script>
+        var txt = "<p>浏览器代号: " + navigator.appCodeName + "</p>";
+        txt += "<p>浏览器名称: " + navigator.appName + "</p>";
+        txt += "<p>浏览器版本: " + navigator.appVersion + "</p>";
+        txt += "<p>启用Cookies: " + navigator.cookieEnabled + "</p>";
+        txt += "<p>硬件平台: " + navigator.platform + "</p>";
+        txt += "<p>用户代理: " + navigator.userAgent + "</p>";
+        txt += "<p>用户代理语言: " + navigator.systemLanguage + "</p>";
+        document.write(txt);
+        var d=new Date();
+    </script>
+    <button onclick="com()">click me</button>
+    <p id="com"></p>
+    <p id="prompt"></p>
+    <p id="myTime"></p>
+    <button onclick="stopTime()">stop</button>
+    <br>
+    <button onclick="cCook()">check cookie</button>
 </body>
 
 </html>
