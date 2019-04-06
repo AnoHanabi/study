@@ -1,11 +1,1 @@
-img#game:hover {
-    cursor: pointer;
-}
-
-div#divM {
-    height: 50px;
-    width: 50px;
-    background-color: teal;
-    text-align: center;
-    line-height: 50px;
-}
+111111112
