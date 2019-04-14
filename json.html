@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="json"></p>
+    <script>
+        var json = [{
+            "name": "tom",
+            "age": 22,
+            "sex": "male"
+        }, {
+            "name": "mary",
+            "age": 24,
+            "sex": "female"
+        }];
+        document.getElementById("json").innerHTML = json[1].name;
+        json[1].name = "qqq";
+        document.write(json[1].name + "<br>");
+        document.write(json[1]["age"] + "<br>");
+        for (x in json[0]) {
+            document.write(json[0][x] + "<br>");
+        }
+        delete json[0].sex;
+        for (x in json[0]) {
+            document.write(json[0][x] + "<br>");
+        }
+        var jsonTime = '{"name": "tim", "realTime": "2019-11-11"}';
+        var ansTime = JSON.parse(jsonTime, function (key, value) {
+            if (key == "realTime") {
+                return new Date(value);
+            }
+            else {
+                return value;
+            }
+        });
+        document.write(ansTime.realTime + "<br>");
+    </script>
+    <div id="myDiv">11111111111</div>
+    <button type="button" onclick="myFunc()">change</button>
+    <script>
+        var xmlHttp;
+        function myFunc() {
+            ajax("ajax.txt", function () {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    document.getElementById("myDiv").innerHTML = xmlHttp.responseText;
+                }
+            });
+        }
+        function ajax(url, func) {
+            xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = func;
+            xmlHttp.open("GET", url, true);
+            xmlHttp.send();
+        }
+        var a = 1;
+    </script>
+    <div>
+        name: <span id="name"></span><br>
+        age: <span id="age"></span><br>
+        sex: <span id="sex"></span><br>
+    </div>
+    <script>
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", "xml.xml", false);
+        xmlHttp.send();
+        var xmlDoc = xmlHttp.responseXML;
+        document.getElementById("name").innerHTML = xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+        document.getElementById("age").innerHTML = xmlDoc.getElementsByTagName("age")[0].childNodes[0].nodeValue;
+        document.getElementById("sex").innerHTML = xmlDoc.getElementsByTagName("sex")[0].childNodes[0].nodeValue;
+        var x=xmlDoc.getElementsByTagName("person");
+        x[0].setAttribute("height","1.72m");
+        document.write(x[0].getAttribute("height"));
+    </script>
+</body>
+
+</html>
