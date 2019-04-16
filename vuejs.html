@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="vuejs.css" type="text/css">
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <p>{{ func() }}</p>
+        {{5+5}}
+        <br>
+        {{ok?"yes":"no"}}
+        <p v-if="seen">see you</p>
+        <a v-bind:href='url' v-bind:target='tar'>baidu</a>
+        <br>
+        <input type="text" v-model="message">
+        <button type="button" v-on:click="reverseM">reverse</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                message: "vue",
+                ok: true,
+                seen: true,
+                tar: "_self",
+                url: "https://www.baidu.com"
+            },
+            methods: {
+                reverseM: function () {
+                    this.message = this.message.split("").reverse().join("");
+                },
+                func: function () {
+                    return this.message + ":" + this.message;
+                }
+            }
+        })
+    </script>
+
+    <div id="app2">
+        {{ mes | cap }}
+    </div>
+    <script>
+        new Vue({
+            el: "#app2",
+            data: {
+                mes: "vue"
+            },
+            filters: {
+                cap: function (value) {
+                    if (!value)
+                        return "";
+                    else {
+                        value = value.toString();
+                        return value.charAt(0).toUpperCase() + value.slice(1);
+                    }
+                }
+            }
+        }) 
+    </script>
+
+    <div id="app3">
+        <div v-if="Math.random()>0.5">
+            big
+        </div>
+        <div v-else>
+            small
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app3"
+        })
+    </script>
+
+    <div id="app4">
+        <div v-for="num in nums">
+            {{num.numb}}
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app4",
+            data: {
+                nums: [
+                    { numb: 1 },
+                    { numb: 2 },
+                    { numb: 3 }
+                ]
+            }
+        })
+    </script>
+
+    <div id="app5">
+        <div v-for="(value, key) in items">
+            {{key}}:{{value}}
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app5",
+            data: {
+                items: {
+                    name: "tom",
+                    sex: "male",
+                    age: 22
+                }
+            }
+        })
+    </script>
+
+    <div id="app6">
+        <span v-for="n in 10">
+            {{n}}<span> </span>
+        </span>
+    </div>
+    <script>
+        new Vue({
+            el: "#app6"
+        })
+    </script>
+
+    <div id="app7">
+        {{mes}}:{{rmes}}
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app7",
+            data: {
+                mes: "vvuuee"
+            },
+            computed: {
+                rmes: function () {
+                    return this.mes.split("").reverse().join("");
+                }
+            }
+        })
+    </script>
+
+    <div id="app8">
+        {{site}}
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app8",
+            data: {
+                name: "baidu",
+                url: "www.baidu.com"
+            },
+            computed: {
+                site: {
+                    get: function () {
+                        return this.name + " " + this.url;
+                    },
+                    set: function (value) {
+                        value = value.split(" ");
+                        this.name = value[0];
+                        this.url = vlaue[1];
+                    }
+                }
+            }
+        })
+        vm.site = "google www.google.com";
+        document.write(vm.name + " " + vm.url);
+    </script>
+
+    <div id="app9">
+        {{num}}
+        <button type="button" @click="num++">+1S</button>
+        <br>
+        km: <input type="text" v-model="km">
+        <br>
+        m: <input type="text" v-model="m">
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app9",
+            data: {
+                num: 1,
+                km: 0,
+                m: 0
+            },
+            watch: {
+                km: function (num) {
+                    this.km = num;
+                    this.m = num * 1000;
+                },
+                m: function (num) {
+                    this.m = num;
+                    this.km = num / 1000;
+                }
+            },
+        });
+        vm.$watch("num", function (nval, oval) {
+            alert(oval + "-->" + nval);
+        });
+    </script>
+
+    <div id="div1">
+        <div v-bind:class="{active:isActive,danger:isDanger}"></div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#div1",
+            data: {
+                isActive: true,
+                isDanger: true
+            }
+        });
+    </script>
+
+    <div id="div2">
+        <button type="button" @click="greet">hello</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#div2",
+            data: {
+                str: "hello"
+            },
+            methods: {
+                greet: function () {
+                    return alert(this.str);
+                }
+            }
+        });
+    </script>
+    
+</body>
+
+</html>
