@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <link rel="stylesheet" href="vuejs.css" type="text/css">
 </head>
 
@@ -231,7 +232,189 @@
             }
         });
     </script>
-    
+
+    <div id="div3">
+        <input type="checkbox" v-model="check">
+        <span>{{check}}</span>
+        <br>
+        <input type="checkbox" v-model="checks" value="111">
+        <input type="checkbox" v-model="checks" value="222">
+        <input type="checkbox" v-model="checks" value="333">
+        <p>{{checks}}</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#div3",
+            data: {
+                check: false,
+                checks: []
+            }
+        });
+    </script>
+
+    <div id="div4">
+        <select v-model="se">
+            <option value="baidu.com">baidu</option>
+            <option value="google.com">google</option>
+        </select>
+        <div>{{se}}</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#div4",
+            data: {
+                se: ""
+            }
+        })  
+    </script>
+
+    <div id="div5">
+        <tom></tom>
+    </div>
+    <script>
+        Vue.component("tom", {
+            template: "<h1>11111</h1>"
+        });
+        var vm = new Vue({
+            el: "#div5"
+        });
+    </script>
+    <div id="div6">
+        <input type="text" v-model="test">
+        <child v-bind:mes="test"></child>
+    </div>
+    <script>
+        Vue.component("child", {
+            props: ["mes"],
+            template: "<h1>{{mes}}</h1>"
+        });
+        new Vue({
+            el: "#div6",
+            data: {
+                test: "2222222"
+            }
+        });
+    </script>
+
+    <div id="div7">
+        <p>{{total}}</p>
+        <Buttonplus @plus="btP"></Buttonplus>
+        <Buttonplus @plus="btP"></Buttonplus>
+    </div>
+    <script>
+        Vue.component("Buttonplus", {
+            template: "<button type='button' @click='btPP'>{{num}}</button>",
+            data: function () {
+                return {
+                    num: 0
+                };
+            },
+            methods: {
+                btPP: function () {
+                    this.num += 1;
+                    this.$emit("plus");
+                }
+            }
+        });
+        new Vue({
+            el: "#div7",
+            data: {
+                total: 0
+            },
+            methods: {
+                btP: function () {
+                    this.total += 1;
+                }
+            }
+        });
+    </script>
+
+    <div id="div8">
+        <input type="text" v-focus>
+    </div>
+    <script>
+        Vue.directive("focus", {
+            inserted: function (el) {
+                el.focus();
+            }
+        });
+        new Vue({
+            el: "#div8"
+        });
+    </script>
+
+    <div id="div9">
+        <div v-tom="{color:'green',str:'sssssss'}"></div>
+    </div>
+    <script>
+        Vue.directive("tom", function (el, binding) {
+            el.innerHTML = binding.value.str;
+            el.style.backgroundColor = binding.value.color;
+        });
+        new Vue({
+            el: "#div9"
+        });
+    </script>
+
+    <div id="ap1">
+        <router-link to="/foo">foo</router-link>
+        <router-link to="/bar">bar</router-link>
+        <router-view></router-view>
+    </div>
+    <script>
+        const foo = { template: "<p>foooo</p>" };
+        const bar = { template: "<p>barrr</p>" };
+
+        const routes = [
+            { path: "/foo", component: foo },
+            { path: "/bar", component: bar }
+        ];
+
+        const router = new VueRouter({
+            routes
+        });
+
+        const ap1 = new Vue({
+            router
+        }).$mount("#ap1");
+    </script>
+
+    <div id="ap2">
+        <button type="button" @click="show=!show">anime</button>
+        <transition name="fade">
+            <p v-show="show" :style="objStyle">anime</p>
+        </transition>
+    </div>
+    <script>
+        new Vue({
+            el: "#ap2",
+            data: {
+                show: true,
+                objStyle: {
+                    fontSize: "20px",
+                    color: "red"
+                }
+            }
+        });
+    </script>
+
+    <div id="ap3">
+        <p>3s to 0:{{num}}</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#ap3",
+            data: {
+                num: 100
+            }
+        });
+        setTimeout(
+            function () {
+                vm.num = 0;
+            }, 3000
+        );
+    </script>
+
 </body>
 
 </html>
